@@ -1,0 +1,33 @@
+uv init                               # Create a new Python project (pyproject.toml)
+uv venv                               # Create a virtual environment (.venv)
+source .venv/bin/activate             # Activate the virtual environment
+
+uv sync                               # Install dependencies from lockfile / pyproject.toml into .venv
+uv add <package>                      # Add a dependency to the project
+uv add --dev <package>                # Add a dev dependency (pytest, ruff, etc.)
+uv remove <package>                   # Remove a dependency from the project
+
+uv run <command>                      # Run a command inside the venv (no need to activate)
+uv lock                               # Generate/update the lockfile for reproducible installs
+uv export -o requirements.txt         # Export requirements.txt (for compatibility)
+
+uv pip install <package>              # Pip-style install into the environment
+uv pip install -r requirements.txt    # Install from a requirements.txt file
+uv pip list                           # List installed packages
+uv pip freeze                         # Output installed packages in requirements format
+uv pip uninstall <package>            # Uninstall a package
+uv pip tree                           # Show dependency tree
+
+uv python list                        # List Python versions uv can use/install
+uv python install <version>           # Install a specific Python version (example: 3.12)
+uv python dir                         # Show where uv stores Python installations
+
+uv tool run <tool> <args>             # Run a tool without installing it globally (like pipx)
+uv tool install <tool>                # Install a CLI tool globally via uv
+uv tool list                          # List globally installed uv tools
+
+uv cache dir                          # Show uv cache directory
+uv cache clean                        # Clean uv cache
+
+uv --help                             # Show help for uv commands
+uv --version                          # Show uv version
